@@ -69,6 +69,9 @@
       const version = web3.version;
       console.log("using web3 version: " + version);
 
+      // Creates a new contract instance with all its methods and events defined in its json interface object.
+      const EscrowContract = new web3.eth.Contract(abi, contractAddress);
+
       $('#contract-form').submit(function() {
         event.preventDefault();
         const fromAddress = $('#fromAddress').val();
@@ -86,7 +89,17 @@
           alert('You must send more than 0 ETH.');
           return;
         }
-      })
+
+        EscrowContract.methods.deposit(toAddress).send({from: fromAddress, gas: 100000, value: web3.utils.toWei(amount,'ether')},
+        function(error, result) {
+          if (error) {
+            console.log('error: ' + error);
+              $('#deposit-result').html('Error: ' + error);
+          } else {
+            $('#deposit-result').html('Success TX: <b>' + result + '</b>');
+          }
+        })
+    });
     </script>
     <script>
       $('#get-balance-form').submit(function() {
