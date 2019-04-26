@@ -1,0 +1,6 @@
+Swarm upload file at localhost:8500/bzz:/{some hash}
+
+## Start swarm with ##
+`$ swarm --ens-api "" --bzzaccount {some_account}`
+
+## Use `swarm up` to upload ## 
