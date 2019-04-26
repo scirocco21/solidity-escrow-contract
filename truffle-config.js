@@ -42,18 +42,21 @@ module.exports = {
     // tab if you use this network and you must also set the `host`, `port` and `network_id`
     // options below to some value.
     //
-    development: {
-      host: "127.0.0.1",     // Localhost (default: none)
-      port: 9545,            // Standard Ethereum port (default: none)
-      network_id: "*",       // Any network (default: none)
-    },
-    ropsten: {
-      host: "127.0.0.1",
-      poort: 8545,
-      network_id: 3,
-      gas: 2900000
+      development: {
+        host: "127.0.0.1",
+        port: 9545,
+        network_id: "*"
+      },
+        ropsten: {
+          host: "127.0.0.1",
+          port: 8545,
+          network_id: 3,
+          gas: 2900000
+        },
+    rpc: {
+      host: 'localhost',
+      post: 8080
     }
-
     // Another network with more advanced options...
     // advanced: {
       // port: 8777,             // Custom port
@@ -80,7 +83,7 @@ module.exports = {
       // provider: () => new HDWalletProvider(mnemonic, `https://network.io`),
       // network_id: 2111,   // This network is yours, in the cloud.
       // production: true    // Treats this network as if it was a public net. (default: false)
-    // }
+    // },
   },
 
   // Set default mocha options here, use special reporters etc.
